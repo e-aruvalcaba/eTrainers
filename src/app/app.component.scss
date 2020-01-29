@@ -1,0 +1,21 @@
+.header-container{
+    width: 100%;
+}
+
+.logo {
+    padding: 0 1.25rem;
+    font-size: 1.2rem;
+    // @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
+    // @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .sidebar-toggle {
+    text-decoration: none;
+    cursor: pointer;
+    color: nb-theme(text-hint-color);
+    nb-icon {
+      font-size: 1.75rem;
+    }
+  }
