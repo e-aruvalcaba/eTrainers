@@ -14,12 +14,9 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule, MatSidenavModule, MatInputModule } from '@angular/material';
 import { LinechartComponent } from './components/linechart/linechart.component';
 import { BarchartComponent } from './components/barchart/barchart.component';
-// import { DoughnutComponent } from './components/doughnut/doughnut.component';
 import { PiechartComponent } from './components/piechart/piechart.component';
-// import { PolarareaComponent } from './components/polararea/polararea.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { ChartModule } from 'angular2-chartjs';
-// import { MatSelectModule } from '@angular/material/select';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
