@@ -1,43 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Chart as chartjs } from 'chart.js';
-import { HttpClient } from '@angular/common/http';
-import { Data, data } from '../../Data/data';
-
+import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-barchart',
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.scss']
 })
 export class BarchartComponent implements OnInit {
-  // data:Data[] = data;
   Player = [];
   Run = [];
-  type: string;
+  // type: string;
   data: any;
   options: any;
-  // barchart = []
   constructor() { }
 
-  ngOnInit() {
-    // this.data.map((x) => {
-    //   this.Player.push(x.PlayerName);
-    //   this.Run.push(x.Run);
-    // });
+  @Input("tipo") type : string;
 
-    this.type = 'horizontalBar';
+  ngOnInit() {
+    console.log(`Esto llego del input: ${this.type}`);
+    this.type = this.type === "" || this.type === undefined || this.type === " " ? "bar" : this.type;
     this.data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
       datasets: [
         {
-          label: "Dataset 1",
+          label: "Arca Continental",
           backgroundColor: "#60f08d" ,
-          data: [65, 59, 80, 81, 56, 55, 20]
+          data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
         }, {
-          label: 'Dataset 2',
+          label: 'Cemex',
           backgroundColor: "#43e3e8",
-          data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
-        },
+          data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
+        },{
+          label: 'Neoris',
+          backgroundColor: "#21a3e8",
+          data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
+        }
       ]
     };
     this.options = {

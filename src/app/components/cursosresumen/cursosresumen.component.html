@@ -1,0 +1,42 @@
+<div class="col-12">
+  <div>
+    <nb-card>
+      <nb-card-header>
+        <div class="d-flex justify-content-center">
+          <h3>Resumen de los Cursos Realizados</h3>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="d-flex justify-content-end pb-3">
+          <button class="btn btn-primary">Agregar Curso</button>
+        </div>
+        <table class="table table-bordered" style="overflow: auto;">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <!-- <th scope="col">id</th> -->
+              <th scope="col">Nombre</th>
+              <th scope="col">Compañia</th>
+              <th scope="col">Fecha de Publicacion</th>
+              <th scope="col">Tecnología</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursos; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{curso.name}}</td>
+              <td>{{curso.company}}</td>
+              <td>{{curso.date | date: 'fullDate'}}</td>
+              <td>{{curso.tech}}</td>
+              <td><button class="btn btn-warning" onclick="prompt('Desea editar el Curso')">Editar</button></td>
+              <td><button class="btn btn-danger" onclick="prompt('Desea Eliminar el Curso')">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

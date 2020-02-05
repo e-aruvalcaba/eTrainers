@@ -1,36 +1,7 @@
 {
-    "common": {
-        "reset": "Reiniciar",
-        "languages": "Idiomas",
-        "es": "Español",
-        "en": "Inglés",
-        "fr": "Francés",
-        "error_complete_all_fields": " Por favor llene todos los campos",
-        "name": "Nombre",
-        "description": "Descripcion",
-        "options": "Opciones",
-        "delete": "Eliminar"
-    },
-    "login": {
-        "title": "Login",
-        "email": "Correo electrónico",
-        "password": "Contraseña"
-    },
-    "softskills":{
-        "title": "Configuración de Soft Skills",
-        "never": "Nunca",
-        "sometimes": "A veces",
-        "frequently": "Frecuentemente",
-        "often": "A menudo",
-        "always": "Siempre",
-        "add_softskill": "Agregar Soft Skill",
-        "add_softskill_name": "Escribe el Nombre del Soft Skill", 
-        "add_softskill_description": "Escribe la Descripcion del Soft Skill",
-        "manage_softskills": "Administrar Soft Skills",
-        "new_softskills": "Agregar Nuevo Soft Skills",
-        "save_softskills": "Guardar Soft Skills"
-    },
-    "wordcloud":{
-        
-    }
+    "title":"Bienvenido a eLearnersCMS",
+    "title.instructions": "Selecciona alguna opción del menú para comenzar a usar plataforma.",
+    "language.title":"Idiomas",
+    "language.spanish": "Español",
+    "language.english": "Ingles"
 }

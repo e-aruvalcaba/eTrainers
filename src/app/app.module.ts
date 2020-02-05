@@ -1,71 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbTabComponent, NbTabsetComponent, NbTabsetModule, NbCardModule, NbRouteTabsetComponent, NbRouteTabsetModule, NbSidebarModule, NbSearchService, NbSidebarService, NbIconModule, NbSearchModule, NbActionsModule, NbSelectModule, NbContextMenuModule, NbUserModule, NbMenuModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { StartComponent } from './components/start/start.component';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSelectModule, MatSidenavModule, MatInputModule } from '@angular/material';
-import { LinechartComponent } from './components/linechart/linechart.component';
-import { BarchartComponent } from './components/barchart/barchart.component';
-import { PiechartComponent } from './components/piechart/piechart.component';
-import { ChartsComponent } from './components/charts/charts.component';
-import { ChartModule } from 'angular2-chartjs';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { CursosresumenComponent } from './components/cursosresumen/cursosresumen.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { ReportesModule } from './components/reportes/reportes.module';
+import { CoreModule } from './modules/core/core.module';
+import { NbSidebarService } from '@nebular/theme';
+import { AnaliticasModule } from './components/analiticas/analiticas.module';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
-    LinechartComponent,
-    BarchartComponent,
-    PiechartComponent,
-    ChartsComponent
+    UsuariosComponent,
+    CursosresumenComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
+    CoreModule,
+    ReportesModule,
+    AnaliticasModule,
     AppRoutingModule,
-    NgbCollapseModule,
-    BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbTabsetModule,
-    NbCardModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatInputModule,
-    NbContextMenuModule,
-    NbRouteTabsetModule,
-    NbSidebarModule.forRoot(),
-    // ngx-translate and the loader module
-    HttpClientModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    NbSearchModule,
-    NbActionsModule,
-    NbSelectModule,
-    NbUserModule,
-    ChartModule,
-    NbMenuModule.forRoot(),
-    TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    })
   ],
-  providers: [NbSidebarService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
