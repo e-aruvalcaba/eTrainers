@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as moment from 'moment';
+import { ExcelService } from 'src/app/services/excel.service';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
+import { PdfService } from 'src/app/services/pdf.service';
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';
 
 export interface curso {
   name: string,
@@ -7,6 +13,14 @@ export interface curso {
   date: Date,
   tech: string
 };
+
+export class cursoResumen {
+  id: number
+  nombre: string
+  compania: string
+  fecha: string
+  tecnologia: string
+}
 
 @Component({
   selector: 'app-cursosresumen',
@@ -17,9 +31,12 @@ export interface curso {
 export class CursosresumenComponent implements OnInit {
 
   localLocale: any;
+  fileName = "test.xlsx";
+  data: cursoResumen[] = [];
+  @ViewChild("tablaCursos", { static: false }) tabla: ElementRef;
 
+  constructor(private _excelService: ExcelService, private _pdf: PdfService) {
 
-  constructor() {
   }
 
   cursos: curso[] = [{
@@ -101,6 +118,14 @@ export class CursosresumenComponent implements OnInit {
   ];
 
   ngOnInit() {
+    
   }
 
-}
+  exportarExcel() : void {
+    this._excelService.exportExcel(this.cursos, "resumen_cursos");
+  }
+
+  exportarPDF(){
+    this._pdf.exportAsPDF(this.tabla, "resumen_cursos")
+  }
+}// end of the way
