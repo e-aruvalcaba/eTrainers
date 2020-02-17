@@ -14,6 +14,7 @@ import { PiechartComponent } from 'src/app/components/piechart/piechart.componen
 import { BarchartComponent } from 'src/app/components/barchart/barchart.component';
 import { LinechartComponent } from 'src/app/components/linechart/linechart.component';
 import { ChartsComponent } from 'src/app/components/charts/charts.component';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 
 registerLocaleData(es);
 export function HttpLoaderFactory(http: HttpClient) {
@@ -56,7 +57,27 @@ export function HttpLoaderFactory(http: HttpClient) {
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
+    }),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          token: {
+            class: NbAuthJWTToken,
+            key: "data.token"
+          },
+          baseEndpoint: "http://localhost:53258", //only for test purposes
+          login: {
+            endpoint: "/api/login/authenticate",
+            redirect: {
+              success: "/inicio",
+              failure: "/"
+            }
+          }
+        }),
+      ],
+      forms: {},
+    }), 
   ],
   exports: [
     PiechartComponent,
@@ -87,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartModule,
     NbMenuModule,
     TranslateModule,
+    NbAuthModule,
   ],
   providers: [NbSidebarService, { provide: LOCALE_ID, useValue: 'es-MX' }]
 })

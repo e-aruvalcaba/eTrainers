@@ -1,5 +1,12 @@
+<!-- <button class="btn btn-primary" (click)="login()"> ENVIAR POST</button> -->
+
+<!-- <button class="btn btn-primary" (click)="postuser()"> ENVIAR POST</button>
+<button class="btn btn-primary" (click)="getAllusers()"> ENVIAR GET</button>
+{{fecha}} -->
+<!-- <button class="btn btn-primary" (click)="getAllusers()"> ENVIAR GET users</button>
+<button class="btn btn-primary" (click)="echoping()"> ENVIAR GET</button> -->
 <nb-layout>
-  <nb-layout-header>
+  <nb-layout-header *ngIf="currentUser">
     <div class="container-fluid" style="padding:0%">
       <div class="row">
         <!-- Main content -->
@@ -37,25 +44,13 @@
     </div> <!-- container -->
   </nb-layout-header>
 
-  <nb-sidebar [responsive]="true" style=" z-index: 1040!important;">
+  <nb-sidebar *ngIf="currentUser" [responsive]="true" style=" z-index: 1040!important;">
     <nb-menu [items]="menu"></nb-menu>
   </nb-sidebar>
 
   <nb-layout-column class="colored-column-basic content ">
     <div class="container-fluid pb-3">
       <div class="row">
-        <!-- Navigation se paso a la parte superior -->
-        <!-- <nb-card class="col-12 navigation d-flex justify-content-start align-items-center">
-          <div id="navigation" class="p-2 navigation col-12">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb" style="margin: 0%;">
-                <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item" *ngFor="let nav of navegacion"><a>{{nav | titlecase}}</a></li>
-              </ol>
-            </nav>
-          </div>
-        </nb-card> -->
-
         <div class="col-12" style="overflow: auto; margin-bottom: 5px;">
           <router-outlet></router-outlet>
         </div>

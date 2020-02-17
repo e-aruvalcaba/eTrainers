@@ -7,13 +7,16 @@
         </div>
       </nb-card-header>
       <nb-card-body>
-        <div class="d-flex justify-content-between pb-3">
-          <nb-select placeholder="Select Showcase" [(selected)]="selectedItem">
-            <nb-option value="">Option empty</nb-option>
-            <nb-option value="0" (click)="exportarExcel()">Exportar a Excel</nb-option>
-            <nb-option value="1" (click)="exportarPDF()">Exportar a PDF</nb-option>
-          </nb-select>
-          <button class="btn btn-primary" (click)="cargarDatos();">Agregar Curso</button>
+        <div class="pb-3 col-12">
+          <div class="row d-flex justify-content-between align-items-center">
+            <nb-select placeholder="Selecciona el Formato" class="col-12 pb-2">
+              <!-- <nb-option value="">Selecciona el formato</nb-option> -->
+              <nb-option value="0" (click)="exportarExcel()">Exportar a Excel</nb-option>
+              <nb-option value="1" (click)="exportarPDF()">Exportar a PDF</nb-option>
+            </nb-select>
+            <button class="btn btn-primary col-12 col-sm-12 col-md-4 col-lg-2 pb-2" (click)="cargarDatos();">Agregar Curso</button>
+
+          </div>
         </div>
         <table #tablaCursos id="tablaCursos" class="table table-bordered" style="overflow: auto;">
           <thead>
@@ -42,7 +45,7 @@
             </tr>
           </tbody>
         </table>
-  
+
       </nb-card-body>
     </nb-card>
   </div>

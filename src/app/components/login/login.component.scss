@@ -1,0 +1,30 @@
+.loginContainer{
+    height: calc(100vh - 3 * 2.5rem)!important;
+}
+
+/deep/ .forgot-password{
+    float: right!important;
+    margin-top: 5px!important;
+}
+
+/deep/ .title{
+	display: flex;
+    justify-content: center;
+}
+
+/deep/ .sub-title{
+	display: flex;
+    justify-content: center;
+}
+
+/deep/ .accept-group{
+    padding: 12px;
+    padding-left: 0px;
+}
+
+/deep/ .another-action{
+    display: flex!important;
+    justify-content: center!important;
+    padding: 12px!important;
+    padding-left: 0px!important;
+}

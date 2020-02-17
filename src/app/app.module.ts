@@ -11,6 +11,7 @@ import { ReportesModule } from './components/reportes/reportes.module';
 import { CoreModule } from './modules/core/core.module';
 import { NbSidebarService } from '@nebular/theme';
 import { AnaliticasModule } from './components/analiticas/analiticas.module';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AnaliticasModule } from './components/analiticas/analiticas.module';
     UsuariosComponent,
     CursosresumenComponent,
     InicioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
