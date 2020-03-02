@@ -17,4 +17,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  test(){
+    alert("hola")
+  }
+
+  login(){
+    this._global.login().subscribe(x =>{
+      console.log("Usuario loggeado")
+      console.log(x)
+    });
+  }
+
 }

@@ -9,7 +9,7 @@ import { CursosresumenComponent } from './components/cursosresumen/cursosresumen
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ReportesModule } from './components/reportes/reportes.module';
 import { CoreModule } from './modules/core/core.module';
-import { NbSidebarService } from '@nebular/theme';
+import { NbSidebarService, NbInputModule, NbButtonModule, NbIconModule } from '@nebular/theme';
 import { AnaliticasModule } from './components/analiticas/analiticas.module';
 import { LoginComponent } from './components/login/login.component';
 
@@ -28,6 +28,9 @@ import { LoginComponent } from './components/login/login.component';
     ReportesModule,
     AnaliticasModule,
     AppRoutingModule,
+    NbInputModule,
+    NbButtonModule,
+    NbIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

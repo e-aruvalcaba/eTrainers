@@ -19,12 +19,92 @@
   background-color: transparent !important;
 }
 .content {
-  padding-top: 5px!important;
+  // padding-top: 5px !important;
   height: 93vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.navigation{
-  padding: 0%; margin-bottom: 5px;
+.navigation {
+  padding: 0%;
+  margin-bottom: 5px;
 }
 
+.fullWidht {
+  height: 100vh;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+// Animacion de la sidebar hay que colocarla dentro de un div para poder darle efecto a ese div
+nb-sidebar,
+nb-sidebar > div.main-container {
+  transition: 0.2s!important;
+  // transition: ;
+}
+
+/deep/ .menu-item a{
+  transition: 0.7s!important;
+}
+
+/deep/ .menu-item {
+  span{
+    pointer-events: none;
+  }
+
+  nb-icon{
+    pointer-events: none;
+  }
+}
+// Seccion principal seleccionada, solo afecta padres
+/deep/ .menu-item > a.active {
+  background-color: rgb(0, 153, 255)!important;;
+  border-color: #3366ff;
+  color: white!important;
+  border-top-right-radius: 150px!important;
+  border-bottom-right-radius: 150px!important;
+
+  nb-icon{
+    color:white!important;
+  }
+}
+
+// Para el rollover de los elementos padres del menu
+/deep/ .menu-item  :hover {
+  background-color: rgba(240, 240, 240, 0.657)!important;
+  color: black!important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4)!important;
+  nb-icon{
+    color:black!important;
+  }
+}
+// Para no afectar el color de la lista de hijos en los submenus
+/deep/ .menu-item .menu-items{   
+  background-color: white!important;
+  box-shadow: none!important;
+}
+
+// Para el rollover de los elementos hijos en los submenus
+/deep/ .menu-item li :hover {
+  // background-color: rgba(96, 186, 246, 0.849)!important;
+  // color: white!important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14);
+}
+// Seccion hijos seleccionados al darle clic hover
+// /deep/ .menu-items li :hover :active {
+//   a {
+//     background-color: rgb(107, 107, 107) !important;
+//     color:white!important;
+//   }
+// }
+// Seccion hijos seleccionados al darle clic
+/deep/ .menu-item > .menu-items > .menu-item a.active {
+  // background-color: rgb(124, 251, 188)!important;
+  background-color: transparent!important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 4px 20px 0px rgba(0, 0, 0, 0.14);
+  border-color: black;
+  color: black!important;
+  border-top-right-radius: 150px!important;
+  border-bottom-right-radius: 150px!important;
+}

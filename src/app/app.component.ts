@@ -66,7 +66,8 @@ export class AppComponent implements OnInit {
   rutaActual: string = "";
   navegacion: string[] = [];
   fecha:any = new Date();
-  currentUser:any = null;
+  currentUser:any = "asdas";
+  isLogin:boolean = true;
 
   menu = MENU_ITEMS;
   userPictureOnly: boolean = false;
@@ -94,6 +95,7 @@ export class AppComponent implements OnInit {
       this.rutaActual = this._router.url.toString();
       if (value instanceof NavigationEnd) {
         this.actualizarRuta(this._router.url.toString().split("/"));
+        this.isLogin = this._router.url.toString() === "/";
       }
     });
 

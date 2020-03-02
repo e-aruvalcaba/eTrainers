@@ -1,5 +1,83 @@
-<nb-card class="mt-5 loginContainer" size="large" style="padding: 30px;">
+<!-- <nb-card class="mt-5 loginContainer" size="large" style="padding: 30px;">
     <div class="col-12 col-md-9 col-lg-4 offset-md-2 offset-lg-4 pt-5">
         <nb-login></nb-login>
     </div>
-</nb-card>
+</nb-card> -->
+
+<div class="col-12 d-flex justify-content-center">
+    <img class="col-12 d-flex justify-content-center" src="../../assets/images/office_people.jpg"
+        style="height: calc(100vh - 3 * 2.5rem)!important; 
+                filter: blur(5px); 
+                background-size: cover;">
+
+
+    <div class="align-self-center loginForm col-12 col-sm-12 col-md-9 col-lg-8 col-xl-5 margin-top: auto;
+    margin-bottom: auto;" style="padding: 0%; position: absolute; z-index: 999; color: #222b45; padding: 2em;">
+
+        <div class="login" style="background: rgba(255, 255, 255, 0.8);
+        border: 0 solid transparent;
+        border-radius: 0.25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+        color: #222b45;
+        padding: 2.5em;">
+            <div class="col-12 d-flex justify-content-center">
+                <h1>Login</h1>
+            </div>
+            <form action="" class="col-12">
+                <div class="form-group">
+                    <label class="newlabel" for="email">
+                        Email
+                    </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend nebular-input-group">
+                            <span class="input-group-text" id="personIcon">
+                                <nb-icon icon="person"></nb-icon>
+                            </span>
+                            <input nbInput type="text" status="success" fullWidth aria-describedby="personIcon"
+                                fieldSize="large" id="email" formControlName="email"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                placeholder="Type your Email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 d-flex justify-content-between pt-2" style="padding: 0%; margin: 0%;">
+                            <label class="newlabel" for="password">
+                                Password
+                            </label>
+                            <a class="newlabel" (click)="test()" style="pointer-events: all;">
+                                Forgot Password?
+                            </a>
+                        </div>
+                        <div class="input-group-prepend nebular-input-group">
+                            <span class="input-group-text" id="personIcon">
+                                <nb-icon icon="lock"></nb-icon>
+                            </span>
+                            <input nbInput status="success" type="text" fullWidth aria-describedby="personIcon"
+                                fieldSize="large" id="password" type="password" formControlName="password"
+                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                placeholder="Type your Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button nbButton status="success" fullWidth id="btnSubmit" type="button" [disabled]="loading"
+                            class="col-12">
+                             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Login
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 d-flex justify-content-end pt-2" style="padding: 0%; margin: 0%;">
+                            <label class="newlabel" for="password">
+                                Don't have an account?
+                            </label>
+                            <a class="newlabel pl-2" (click)="test()" style="pointer-events: all; color: black;">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

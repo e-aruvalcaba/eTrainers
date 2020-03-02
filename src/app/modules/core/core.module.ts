@@ -32,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbCollapseModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
+    // NbThemeModule.forRoot({ name: 'custom' }),
     NbLayoutModule,
     NbEvaIconsModule,
     NbTabsetModule,
