@@ -4,6 +4,8 @@ import { ExcelService } from 'src/app/services/excel.service';
 import * as XLSX from 'xlsx';
 import * as FileSaver from 'file-saver';
 import { PdfService } from 'src/app/services/pdf.service';
+import { GlobalService } from 'src/app/services/global.service';
+import { User } from 'src/app/models/Usuario';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 
@@ -35,7 +37,7 @@ export class CursosresumenComponent implements OnInit {
   data: cursoResumen[] = [];
   @ViewChild("tablaCursos", { static: false }) tabla: ElementRef;
 
-  constructor(private _excelService: ExcelService, private _pdf: PdfService) {
+  constructor(private _excelService: ExcelService, private _pdf: PdfService, private _global: GlobalService) {
 
   }
 
@@ -128,4 +130,23 @@ export class CursosresumenComponent implements OnInit {
   exportarPDF(){
     this._pdf.exportAsPDF(this.tabla, "resumen_cursos")
   }
+
+  insertUser(){
+    let user:User = {
+      id: 1,
+      name: "Maricela ",
+      lastname: "Ramirez Ortiz",
+      email: "maricela.ramirez@neoris.com",
+      password: "Neoris_2020.",
+      rol: "USER_ROLE",
+      fechaCreacion: new Date(2020, 2, 29)
+    }
+
+    this._global.postUser(user).subscribe(response => console.log(response));
+  }
+
+  getAll(){
+    this._global.getAllUsers().subscribe(resp => console.log(resp));
+  }
+
 }// end of the way

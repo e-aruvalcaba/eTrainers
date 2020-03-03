@@ -12,8 +12,9 @@ export class LoginComponent implements OnInit {
   constructor(private _global:GlobalService, private _router: Router) { }
 
   ngOnInit() {
-    if(!this._global.user){
-      this._router.navigateByUrl('/')
+    // debugger
+    if(this._global.isLoggedIn()){
+      this._router.navigateByUrl('/inicio')
     }
   }
 
@@ -22,10 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this._global.login().subscribe(x =>{
-      console.log("Usuario loggeado")
-      console.log(x)
-    });
+    this._global.login();
   }
 
 }

@@ -12,6 +12,10 @@ import { NbAuthService, NbAuthJWTToken } from '@nebular/auth';
 export const MENU_ITEMS: NbMenuItem[] = [{
   title: "Menú Principal",
   group: true
+},{
+  title: "Inicio",
+  link: "/inicio",
+  icon: "home-outline"
 }, {
   title: "Cursos",
   link: "/cursos",
@@ -118,7 +122,7 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    if (newUrl.length == 2 && newUrl[1] == "") {
+    if (newUrl.length == 2 && newUrl[1] == "" || newUrl.length == 2 && newUrl[1] == "inicio") {
       newUrl = [];
     } else {
       newUrl.shift();
@@ -177,10 +181,7 @@ export class AppComponent implements OnInit {
   }
 
   login(){
-    this._global.login().subscribe(x => {
-      console.log(x)
-    });
-  }
+    this._global.login();}
 
   getAllusers(){
 

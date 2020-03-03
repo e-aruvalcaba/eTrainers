@@ -1,40 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/Usuario';
-export class login{
+import { error } from 'protractor';
+export class login {
   email: string
-  password: string  
+  password: string
 }
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
+const baseUrl = "http://localhost:53258/api/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
 
-  private _currentUser : any = null; 
+  private _currentUser: any = null;
 
   constructor(private _http: HttpClient) { }
 
   // user operations
-  
-  public get user() : any {
+
+  public get user(): any {
     return this._currentUser;
-  }  
-  public set user(v : any) {
+  }
+  public set user(v: any) {
     this._currentUser = v;
   }
-  
+
+
 
   // http operations
   getAllUsers() {
-    return this._http.get('http://localhost:53258/api/Test');
+    return this._http.get('http://localhost:53258/api/Test', this.authOptions());
   }
   getUserbyId(id: number) {
     return this._http.get('http://localhost:53258/api/Test/' + id);
@@ -43,12 +40,18 @@ export class GlobalService {
     return this._http.post<User>('http://localhost:53258/api/Test', user);
   }
 
-  login(){
-    let login:login = {
+  login() {
+    let login: login = {
       email: "maricela.rmz@neoris.com",
       password: "Neoris_2020."
     }
-    return this._http.post<login>('http://localhost:53258/api/login/authenticate', login);
+    return this._http.post<login>('http://localhost:53258/api/login/authenticate', login).subscribe((resp) => {
+      if (resp) {
+        localStorage.setItem("tokens", JSON.stringify(resp))
+      }
+    }, (error) => {
+      console.warn(error)
+    }, () => { });;
   }
 
   // return this._http.post<User>('http://localhost:53258/api/Test', user)
@@ -63,5 +66,27 @@ export class GlobalService {
   // postTrain(train: Train) {
   //   return this._http.post<Train>('http://40.76.70.76:80/TrainTracking/api/Train/', train);
   // }
+
+
+  isLoggedIn() {
+    return this._http.get(`${baseUrl}login/echouser`, this.authOptions()).subscribe((resp) => {
+      debugger
+      let resps = resp;
+      if (resps === undefined || resps === null || !resps) {
+        localStorage.clear();
+      }
+    }, (error) => {
+      console.warn(error)
+    }, () => { });
+  }
+
+  private authOptions(): any {
+    return {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('tokens')).token}`,
+      }) // end headers
+    }; // end options
+  } // end authOptions
 
 }
