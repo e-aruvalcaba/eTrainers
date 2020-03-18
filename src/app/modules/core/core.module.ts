@@ -2,7 +2,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbTabsetModule, NbCardModule, NbContextMenuModule, NbRouteTabsetModule, NbSidebarModule, NbIconModule, NbSearchModule, NbActionsModule, NbSelectModule, NbUserModule, NbMenuModule, NbSidebarService } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbTabsetModule, NbCardModule, NbContextMenuModule, NbRouteTabsetModule, NbSidebarModule, NbIconModule, NbSearchModule, NbActionsModule, NbSelectModule, NbUserModule, NbMenuModule, NbSidebarService, NbButtonModule, NbInputModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { MatSidenavModule, MatSelectModule, MatInputModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -15,6 +15,11 @@ import { BarchartComponent } from 'src/app/components/barchart/barchart.componen
 import { LinechartComponent } from 'src/app/components/linechart/linechart.component';
 import { ChartsComponent } from 'src/app/components/charts/charts.component';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { InicioComponent } from 'src/app/components/inicio/inicio.component';
+import { CursosresumenComponent } from 'src/app/components/cursosresumen/cursosresumen.component';
+import { UsuariosComponent } from 'src/app/components/usuarios/usuarios.component';
+import { StartComponent } from 'src/app/components/start/start.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 registerLocaleData(es);
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,6 +31,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     BarchartComponent,
     LinechartComponent,
     ChartsComponent,
+    StartComponent,
+    UsuariosComponent,
+    CursosresumenComponent,
+    InicioComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -51,6 +61,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NbSelectModule,
     NbUserModule,
     ChartModule,
+    NbInputModule,
+    NbButtonModule,
+    // NbIconModule,
     NbMenuModule.forRoot(),
     TranslateModule.forRoot({
         loader: {

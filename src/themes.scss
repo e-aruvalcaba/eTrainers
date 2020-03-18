@@ -1,13 +1,14 @@
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
+@import '~@nebular/theme/styles/themes/dark';
+@import '~@nebular/theme/styles/themes/corporate';
+@import '~@nebular/theme/styles/themes/cosmic';
+
 
 // @import ' ~@nebular/auth/styles/globals';
 
-@include nb-install() {
-  background: nb-theme(color-primary-100 );
-  // @include nb-theme-global();
-  // @include nb-auth-global(); // append the install mixin inside of the nb-install
-};
+$nb-enable-css-custom-properties: true;
+$table-text: inverse;
 
 $nb-themes: nb-register-theme((
 
@@ -25,10 +26,105 @@ $nb-themes: nb-register-theme((
 
   text-basic-color: color-basic-800,
   text-disabled-color: color-basic-600,
+  $table-text: color-primary-100
 
 ), default, default);
 
 $nb-themes: nb-register-theme((
+  // text-basic-color: color-basic-800, // some styles we changed
+  // text-disabled-color: color-basic-600,
 
+  $table-text: color-primary-100
+), dark, dark);
 
-), custom, default); // <- theme name and a parent theme
+$nb-themes: nb-register-theme((
+  // text-basic-color: color-basic-800, // some styles we changed
+  // text-disabled-color: color-basic-600,
+  $table-text: color-primary-100
+), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  // text-basic-color: color-basic-800, // some styles we changed
+  // text-disabled-color: color-basic-600,
+  $table-text: color-primary-100
+), corporate, corporate);
+
+$nb-themes: nb-register-theme((
+
+  color-primary-100: #D3FCCA,
+  color-primary-200: #9EFA96,
+  color-primary-300: #60F162,
+  color-primary-400: #38E34B,
+  color-primary-500: #00D22B,
+  color-primary-600: #00B436,
+  color-primary-700: #00973B,
+  color-primary-800: #00793B,
+  color-primary-900: #00643B,
+  color-primary-transparent-100: rgba(0, 210, 43, 0.08),
+  color-primary-transparent-200: rgba(0, 210, 43, 0.16),
+  color-primary-transparent-300: rgba(0, 210, 43, 0.24),
+  color-primary-transparent-400: rgba(0, 210, 43, 0.32),
+  color-primary-transparent-500: rgba(0, 210, 43, 0.4),
+  color-primary-transparent-600: rgba(0, 210, 43, 0.48),
+  color-success-100: #EBFCDD,
+  color-success-200: #D3FABB,
+  color-success-300: #B2F296,
+  color-success-400: #92E679,
+  color-success-500: #63D64F,
+  color-success-600: #42B839,
+  color-success-700: #279A28,
+  color-success-800: #197C21,
+  color-success-900: #0F661D,
+  color-success-transparent-100: rgba(99, 214, 79, 0.08),
+  color-success-transparent-200: rgba(99, 214, 79, 0.16),
+  color-success-transparent-300: rgba(99, 214, 79, 0.24),
+  color-success-transparent-400: rgba(99, 214, 79, 0.32),
+  color-success-transparent-500: rgba(99, 214, 79, 0.4),
+  color-success-transparent-600: rgba(99, 214, 79, 0.48),
+  color-info-100: #D7F1FE,
+  color-info-200: #B0DFFE,
+  color-info-300: #89CAFC,
+  color-info-400: #6BB4FA,
+  color-info-500: #3B93F7,
+  color-info-600: #2B72D4,
+  color-info-700: #1D55B1,
+  color-info-800: #123B8F,
+  color-info-900: #0B2976,
+  color-info-transparent-100: rgba(59, 147, 247, 0.08),
+  color-info-transparent-200: rgba(59, 147, 247, 0.16),
+  color-info-transparent-300: rgba(59, 147, 247, 0.24),
+  color-info-transparent-400: rgba(59, 147, 247, 0.32),
+  color-info-transparent-500: rgba(59, 147, 247, 0.4),
+  color-info-transparent-600: rgba(59, 147, 247, 0.48),
+  color-warning-100: #FEFDCE,
+  color-warning-200: #FDFB9E,
+  color-warning-300: #FBF76E,
+  color-warning-400: #F7F14A,
+  color-warning-500: #F2EA10,
+  color-warning-600: #D0C80B,
+  color-warning-700: #AEA708,
+  color-warning-800: #8C8605,
+  color-warning-900: #746E03,
+  color-warning-transparent-100: rgba(242, 234, 16, 0.08),
+  color-warning-transparent-200: rgba(242, 234, 16, 0.16),
+  color-warning-transparent-300: rgba(242, 234, 16, 0.24),
+  color-warning-transparent-400: rgba(242, 234, 16, 0.32),
+  color-warning-transparent-500: rgba(242, 234, 16, 0.4),
+  color-warning-transparent-600: rgba(242, 234, 16, 0.48),
+  color-danger-100: #FED5D1,
+  color-danger-200: #FEA4A4,
+  color-danger-300: #FE7684,
+  color-danger-400: #FD5476,
+  color-danger-500: #fc1c5f,
+  color-danger-600: #D81462,
+  color-danger-700: #B50E60,
+  color-danger-800: #92085A,
+  color-danger-900: #780555,
+  color-danger-transparent-100: rgba(252, 28, 95, 0.08),
+  color-danger-transparent-200: rgba(252, 28, 95, 0.16),
+  color-danger-transparent-300: rgba(252, 28, 95, 0.24),
+  color-danger-transparent-400: rgba(252, 28, 95, 0.32),
+  color-danger-transparent-500: rgba(252, 28, 95, 0.4),
+  color-danger-transparent-600: rgba(252, 28, 95, 0.48)
+
+), wegrow, default);

@@ -33,7 +33,7 @@
           <div class="col-5 d-flex align-items-center justify-content-end">
             <nb-actions size="small">
               <nb-action class="control-item">
-                <nb-search type="rotate-layout"></nb-search>
+                <nb-search type="modal-zoomin"></nb-search>
               </nb-action>
               <nb-action class="user-action">
                 <nb-user [nbContextMenu]="userMenu" [onlyPicture]="userPictureOnly" [name]="user?.name"
@@ -47,19 +47,16 @@
     </div> <!-- container -->
   </nb-layout-header>
 
-  <nb-sidebar *ngIf="currentUser" [responsive]="true" style="z-index: 1040!important;">
-    <div class="main-container">
-      <nb-menu [items]="menu"></nb-menu>
-      </div>
+  <nb-sidebar *ngIf="currentUser" [responsive]="true" style="z-index: 1040!important; height: 100vh;">
+      <nb-sidebar-header>
+        <nb-select placeholder="Tema Visual">
+          <nb-option *ngFor="let theme of themes" (click)="changeTheme(theme.value)">{{theme.name}}</nb-option>
+        </nb-select>
+      </nb-sidebar-header>
+      <nb-menu [items]="menu" style="height: 60vh;"></nb-menu>
   </nb-sidebar>
 
   <nb-layout-column class="colored-column-basic content">
-    <div class="container-fluid pb-3" style="overflow: hidden!important; padding: 0%;">
-      <div class="row">
-        <div class="col-12" style="overflow: auto; margin-bottom: 5px; padding: 0%;">
           <router-outlet></router-outlet>
-        </div>
-      </div> <!-- row -->
-    </div> <!-- container fluid -->
   </nb-layout-column>
 </nb-layout>

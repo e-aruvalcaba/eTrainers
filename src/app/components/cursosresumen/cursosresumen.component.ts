@@ -27,7 +27,7 @@ export class cursoResumen {
 @Component({
   selector: 'app-cursosresumen',
   templateUrl: './cursosresumen.component.html',
-  styleUrls: ['./cursosresumen.component.css']
+  styleUrls: ['./cursosresumen.component.scss']
 })
 
 export class CursosresumenComponent implements OnInit {

@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { NbSidebarService } from '@nebular/theme';
+import { NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { NbMenuItem } from '@nebular/theme';
 import { group } from '@angular/animations';
@@ -9,6 +9,12 @@ import { GlobalService } from './services/global.service';
 import { User } from './models/Usuario';
 import { NbAuthService, NbAuthJWTToken } from '@nebular/auth';
 
+export const bottommenu_MENU_ITEMS: NbMenuItem[] = [{
+  
+    title: "Tema Visual",
+    icon: "home-outline"
+  
+}];
 export const MENU_ITEMS: NbMenuItem[] = [{
   title: "Menú Principal",
   group: true
@@ -72,6 +78,23 @@ export class AppComponent implements OnInit {
   fecha:any = new Date();
   currentUser:any = "asdas";
   isLogin:boolean = true;
+  currentTheme = 'default';
+  themes = [{
+    value: 'dark',
+    name: 'Obscuro'
+  },{
+    value: 'cosmic',
+    name: 'Cosmico'
+  },{
+    value: 'corporate',
+    name: 'Empresarial'
+  },{
+    value: 'wegrow',
+    name: 'Personalizado'
+  },{
+    value: 'default',
+    name: 'Por Defecto'
+  }]
 
   menu = MENU_ITEMS;
   userPictureOnly: boolean = false;
@@ -86,7 +109,8 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
     private _sidebar: NbSidebarService,
     private _global: GlobalService,
-    private _authService: NbAuthService) {
+    private _authService: NbAuthService,
+    private _theme: NbThemeService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('es');
 
@@ -188,6 +212,10 @@ export class AppComponent implements OnInit {
     this._global.getAllUsers().subscribe( x => {
       console.log(x);
     });
+  }
+
+  changeTheme(theme){
+    this._theme.changeTheme(theme);
   }
 
 }// end of the way
