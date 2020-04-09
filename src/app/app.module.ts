@@ -15,12 +15,16 @@ import { LoginComponent } from './components/login/login.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TablaComponent,
     SearchComponent,
+    SearchResultsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,24 +1,15 @@
-
 <div class="input-group-prepend nebular-input-group">
   <ng-template #rt let-r="result" let-t="term">
-        <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1" style="width: 16px"> -->
-        <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
-    </ng-template>
-    <!-- <input id="searchInput" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
-    [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="Type for start searching" (keyup)="onKeyup($event)"/> -->
-    <input id="searchInput" type="text"
-             placeholder="Search for Users"
-             name="ArtistName"
-             class="form-control"                     
-             [(ngModel)]="model"
-             [ngbTypeahead]="search"                     
-             [resultFormatter]="resultFormatBandListValue"
-             [inputFormatter]="inputFormatBandListValue"
-             (selectItem)="getSelection($event)"
-             (keyup)="keyUp($event)"
-             #instance="ngbTypeahead"/>
+    <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1" style="width: 16px"> -->
+    <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+  </ng-template>
+  <input id="searchInput" type="text" placeholder="Search for Users" name="ArtistName" class="form-control"
+    [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="resultFormatValue"
+    [inputFormatter]="inputFormatValue" (selectItem)="getSelection($event)" (keyup)="keyUp($event)"
+    #instance="ngbTypeahead" />
 
-  <span class="input-group-text" id="personIcon" data-toggle="dropdown" style="cursor:pointer" (click)="searchForUsers()">
+  <span class="input-group-text" id="personIcon" data-toggle="dropdown" style="cursor:pointer"
+    (click)="searchForUsers()">
     <nb-icon icon="search"></nb-icon>
   </span>
   <!-- <span class="input-group-text" id="personIcon" data-toggle="dropdown" style="cursor:pointer" (click)="openDropDown()">
@@ -35,28 +26,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- 
-<div class="input-group-prepend nebular-input-group">
-  <ng-template #rt let-r="result" let-t="term">
-        <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
-    </ng-template>
-    <input id="searchInput" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
-    [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="Type for start searching" (keyup)="onKeyup($event)"/>
-
-  <span class="input-group-text" id="personIcon" data-toggle="dropdown" style="cursor:pointer" (click)="openDropDown()">
-    <nb-icon icon="{{icono}}"></nb-icon>
-  </span>
-
-  <div #ddown="ngbDropdown" ngbDropdown class="d-inline-block">
-    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle style="display: none;">Toggle
-      dropdown</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button ngbDropdownItem (click)="getSelection(0)">Users</button>
-      <button ngbDropdownItem (click)="getSelection(1)">Location</button>
-      <button ngbDropdownItem (click)="getSelection(2)">Officess</button>
-    </div>
-  </div>
-</div> -->
