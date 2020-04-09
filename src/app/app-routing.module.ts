@@ -7,11 +7,13 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { NbAuthComponent, NbLoginComponent, NbRegisterComponent, NbLogoutComponent, NbRequestPasswordComponent, NbResetPasswordComponent } from '@nebular/auth';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: TablaComponent },
   { path: "inicio", component: InicioComponent },
+  { path: "tabla", component: TablaComponent },
   { path: "cursos", component: CursosresumenComponent },
   { path: "usuarios", component: UsuariosComponent },
   { path: "reportes/pie" || "reportes/bar", loadChildren: () => import("./components/reportes/reportes.module").then(m => m.ReportesModule)},

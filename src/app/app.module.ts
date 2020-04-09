@@ -12,13 +12,19 @@ import { CoreModule } from './modules/core/core.module';
 import { NbSidebarService, NbInputModule, NbButtonModule, NbIconModule } from '@nebular/theme';
 import { AnaliticasModule } from './components/analiticas/analiticas.module';
 import { LoginComponent } from './components/login/login.component';
+import { TablaComponent } from './components/tabla/tabla.component';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TablaComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     CoreModule,
     ReportesModule,
     AnaliticasModule,

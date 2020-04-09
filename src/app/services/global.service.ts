@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/Usuario';
 import { error } from 'protractor';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 export class login {
   email: string
   password: string
@@ -31,7 +33,14 @@ export class GlobalService {
 
   // http operations
   getAllUsers() {
-    return this._http.get('http://localhost:53258/api/Test', this.authOptions());
+    // return this._http.get('http://localhost:53258/api/Test');
+    return this._http.get('http://localhost:58958/api/Test');
+    
+  }
+  getSearch(searchText:string) {
+    // return this._http.get('http://localhost:53258/api/Test');
+    return this._http.get('http://localhost:58958/api/test?searchText=' + searchText);
+    
   }
   getUserbyId(id: number) {
     return this._http.get('http://localhost:53258/api/Test/' + id);
@@ -52,6 +61,16 @@ export class GlobalService {
     }, (error) => {
       console.warn(error)
     }, () => { });;
+  }
+
+  
+  
+  search(term: string) {
+    if (term === '') {
+      return of([]);
+    }
+
+    return this.getAllUsers();
   }
 
   // return this._http.post<User>('http://localhost:53258/api/Test', user)
@@ -88,5 +107,7 @@ export class GlobalService {
       }) // end headers
     }; // end options
   } // end authOptions
+
+
 
 }

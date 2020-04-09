@@ -22,12 +22,18 @@
               </a>
             </div>
 
-            <div id="navigation" class="offset-1 p-2 navigation d-none d-lg-flex align-items-center">
+            <!-- search component para wegrow -->
+            <div class="col-3" style="z-index: 1041;">
+              <app-search></app-search>
+            </div>            
+
+            <!-- Navegacion funcional -->
+            <!-- <div id="navigation" class="offset-1 p-2 navigation d-none d-lg-flex align-items-center">
               <ol class="breadcrumb" style="margin: 0%; padding-bottom: 5px!important;">
                 <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
                 <li class="breadcrumb-item" *ngFor="let nav of navegacion"><a>{{nav | titlecase}}</a></li>
               </ol>
-            </div>
+            </div> -->
           </div>
 
           <div class="col-5 d-flex align-items-center justify-content-end">

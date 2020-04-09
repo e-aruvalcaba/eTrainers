@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // debugger
-    if(this._global.isLoggedIn()){
-      this._router.navigateByUrl('/inicio')
-    }
+    // if(this._global.isLoggedIn()){
+    //   this._router.navigateByUrl('/inicio')
+    // }
   }
 
   test(){

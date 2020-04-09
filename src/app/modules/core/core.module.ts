@@ -1,6 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { CommonModule, registerLocaleData } from '@angular/common';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule, registerLocaleData, DecimalPipe } from '@angular/common';
+import { NgbCollapseModule, NgbModule, NgbPagination, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbTabsetModule, NbCardModule, NbContextMenuModule, NbRouteTabsetModule, NbSidebarModule, NbIconModule, NbSearchModule, NbActionsModule, NbSelectModule, NbUserModule, NbMenuModule, NbSidebarService, NbButtonModule, NbInputModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -20,6 +20,7 @@ import { CursosresumenComponent } from 'src/app/components/cursosresumen/cursosr
 import { UsuariosComponent } from 'src/app/components/usuarios/usuarios.component';
 import { StartComponent } from 'src/app/components/start/start.component';
 import { LoginComponent } from 'src/app/components/login/login.component';
+import { NgbdSortableHeader } from 'src/app/components/tabla/tabla.component';
 
 registerLocaleData(es);
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,12 +37,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     CursosresumenComponent,
     InicioComponent,
     LoginComponent,
+    NgbdSortableHeader
   ],
   imports: [
     CommonModule,
+    NgbModule,
+    NgbPaginationModule,
     NgbCollapseModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({ name: 'dark' }),
     // NbThemeModule.forRoot({ name: 'custom' }),
     NbLayoutModule,
     NbEvaIconsModule,
@@ -98,6 +102,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BarchartComponent,
     LinechartComponent,
     ChartsComponent,
+    NgbModule,
+    NgbPaginationModule,
     NgbCollapseModule,
     BrowserAnimationsModule,
     NbThemeModule,
@@ -123,8 +129,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NbMenuModule,
     TranslateModule,
     NbAuthModule,
+    NgbdSortableHeader,
   ],
-  providers: [NbSidebarService, { provide: LOCALE_ID, useValue: 'es-MX' }]
+  providers: [NbSidebarService, DecimalPipe, { provide: LOCALE_ID, useValue: 'es-MX' }]
 })
 export class CoreModule {
 

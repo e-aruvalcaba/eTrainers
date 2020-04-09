@@ -1,0 +1,45 @@
+.nebular-input-group{
+    width: 100%;
+}
+.nebular-input-group > input {
+  border-radius: 0px;
+  border-left: none !important;
+  -webkit-border-top-left-radius: 20px !important;
+  -webkit-border-bottom-left-radius: 20px !important;
+  -moz-border-radius-topleft: 20px !important;
+  -moz-border-radius-bottomleft: 20px !important;
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+
+.nebular-input-group > span {
+  border-radius: 0;
+  border-left: none;
+  background-color: #f7f9fc!important;
+  border-color: #2ce69b!important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.nebular-input-group > div > span {
+    border-radius: 0;
+    border-left: none;
+    background-color: #f7f9fc!important;
+    border-color: #2ce69b!important;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+
+    -webkit-box-align: center!important;
+    align-items: center!important;
+    padding: 0.375rem 0.75rem!important;
+    margin-bottom: 0!important;
+    font-size: 1rem!important;
+    font-weight: 400!important;
+    line-height: 1.5!important;
+    color: #495057!important;
+    text-align: center!important;
+    white-space: nowrap!important;
+    background-color: #e9ecef!important;
+    border: 1px solid #ced4da!important;
+    border-radius: 0.25rem!important;  
+}

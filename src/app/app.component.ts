@@ -19,6 +19,10 @@ export const MENU_ITEMS: NbMenuItem[] = [{
   title: "Menú Principal",
   group: true
 },{
+  title: "Tabla",
+  link: "/tabla",
+  icon: ""
+},{
   title: "Inicio",
   link: "/inicio",
   icon: "home-outline"
